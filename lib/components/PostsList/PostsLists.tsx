@@ -1,10 +1,13 @@
-import { TPost } from '@/lib/types/posts'
+'use client'
+import { useAppSelector } from '@/lib/hooks'
+import Post from '@/lib/components/Post'
 
-const PostsLists = ({ posts }: { posts: TPost[] }) => {
+const PostsLists = () => {
+  const posts = useAppSelector((state) => state.posts.value)
   return (
     <div>
       {posts.map((post) => (
-        <div key={post.id}>{JSON.stringify(post, null, 4)}</div>
+        <Post key={post.id} post={post} />
       ))}
     </div>
   )
