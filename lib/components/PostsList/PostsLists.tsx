@@ -2,12 +2,14 @@
 import { useAppSelector } from '@/lib/hooks'
 import Post from '@/lib/components/Post'
 
+const FADE_IN_STEP = 25 // ms
+
 const PostsLists = () => {
   const posts = useAppSelector((state) => state.posts.value)
   return (
     <div>
-      {posts.map((post) => (
-        <Post key={post.id} post={post} />
+      {posts.map((post, idx) => (
+        <Post key={post.id} post={post} fadeInDelay={idx * FADE_IN_STEP}/>
       ))}
     </div>
   )
