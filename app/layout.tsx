@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 import { ReactNode } from 'react'
-import StoreProvider from '../lib/components/StoreProvider/StoreProvider'
+import StoreProvider from '@/lib/components/StoreProvider/StoreProvider'
 import { TPostsResponse } from "@/lib/types";
 import { POSTS_URL } from "@/lib/constants";
 
