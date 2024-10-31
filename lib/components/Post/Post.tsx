@@ -17,7 +17,7 @@ const Post = ({ post, fadeInDelay = 0, displayFull = false }: { post: TPost; fad
   const postBody = displayFull ? post.body : post.body.slice(0, 100) + '...'
 
   const PostComponent = (
-    <div className={postClassName} key={post.id}>
+    <div className={postClassName} key={post.id} data-testid="post-component">
       <Image
         src={imageUrl}
         style={{ height: '75px', width: '75px' }}
@@ -27,8 +27,8 @@ const Post = ({ post, fadeInDelay = 0, displayFull = false }: { post: TPost; fad
         onLoad={showPost}
       />
       <div className="w-full">
-        <div className="text-lg sm:text-xl font-bold">{post.author}</div>
-        <div className="my-2 text-sn">{postBody}</div>
+        <div className="text-lg sm:text-xl font-bold" data-testid="post-author">{post.author}</div>
+        <div className="my-2 text-sn" data-testid="post-body">{postBody}</div>
       </div>
     </div>
   )
