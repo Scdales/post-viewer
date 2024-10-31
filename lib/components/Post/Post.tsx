@@ -26,7 +26,7 @@ const Post = ({ post, fadeInDelay = 0, displayFull = false }: { post: TPost; fad
         height={75}
         onLoad={showPost}
       />
-      <div>
+      <div className="w-full">
         <div className="text-lg sm:text-xl font-bold">{post.author}</div>
         <div className="my-2 text-sn">{postBody}</div>
       </div>

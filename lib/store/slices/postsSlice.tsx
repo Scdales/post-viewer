@@ -2,6 +2,8 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { TPost } from '@/lib/types'
 import { getPosts } from '@/lib/services'
 import { NEW_POST_POLL } from '@/lib/constants'
+import { enqueueSnackbar } from 'notistack'
+import Notification from '@/lib/components/Notification'
 
 export interface IPostsState {
   value: TPost[]
@@ -15,7 +17,7 @@ const initialState: IPostsState = {
   numPosts: 0
 }
 
-let interval: NodeJS.Timeout | null = null
+let interval: ReturnType<typeof setInterval> | null = null
 
 export const fetchLatestPost = createAsyncThunk('posts/fetchLatestPost', async (_, thunkAPI) => {
   if (!interval) {
@@ -23,6 +25,7 @@ export const fetchLatestPost = createAsyncThunk('posts/fetchLatestPost', async (
       const state = thunkAPI.getState() as { posts: IPostsState }
       const [latestPost] = await getPosts(state.posts.numPosts, 1)
       thunkAPI.dispatch(addLatestPost(latestPost))
+      enqueueSnackbar(<Notification post={latestPost} />)
     }, NEW_POST_POLL)
   }
 })
