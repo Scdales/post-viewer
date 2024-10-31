@@ -3,8 +3,9 @@ import localFont from 'next/font/local'
 import './globals.css'
 import { ReactNode } from 'react'
 import StoreProvider from '@/lib/components/StoreProvider/StoreProvider'
-import { TPostsResponse } from "@/lib/types";
-import { POSTS_URL } from "@/lib/constants";
+import { TPostsResponse } from '@/lib/types'
+import { POSTS_URL } from '@/lib/constants'
+import { TUsersResponse } from '@/lib/types/users'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -30,11 +31,20 @@ export default async function RootLayout({
 }: Readonly<{
   children: ReactNode
 }>) {
-  const postsReq = await fetch(INITIAL_POSTS_URL)
+  const postsReq = await fetch(INITIAL_POSTS_URL, { cache: 'force-cache' })
   const postsData: TPostsResponse = await postsReq.json()
+  const userIds = postsData.posts.map((post) => post.userId)
+  const userNames = await Promise.all(
+    userIds.map(async (userId) => {
+      const userReq = await fetch(`https://dummyjson.com/users/${userId}`, { cache: 'force-cache' })
+      const userData: TUsersResponse = await userReq.json()
+      return `${userData.firstName} ${userData.lastName}`
+    })
+  )
+  const posts = postsData.posts.map((post, idx) => ({ ...post, author: userNames[idx] }))
 
   return (
-    <StoreProvider posts={postsData.posts}>
+    <StoreProvider posts={posts}>
       <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
       </html>
