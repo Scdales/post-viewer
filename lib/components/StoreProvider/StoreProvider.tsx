@@ -2,8 +2,8 @@
 import { ReactNode, useRef } from 'react'
 import { Provider } from 'react-redux'
 import { makeStore, AppStore } from '@/lib/store'
-import { TPost } from "@/lib/types";
-import { addPosts } from "@/lib/store/slices";
+import { TPost } from '@/lib/types'
+import { addPosts } from '@/lib/store/slices'
 
 export default function StoreProvider({ children, posts }: { children: ReactNode; posts: TPost[] }) {
   const storeRef = useRef<AppStore>()
