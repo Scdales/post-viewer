@@ -1,6 +1,19 @@
+# Post viewer
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## 
+## Uses
+
+- [React 18](https://react.dev/)
+- [NextJs 15](https://nextjs.org/)
+- [Tailwind](https://tailwindcss.com/)
+- [Redux / RTK](https://redux-toolkit.js.org/)
+- [DummyJSON](https://dummyjson.com/)
+
+## Highlights
+
+- Fetches initial 20 posts for root page at build time and hydrates initial redux state
+- Polls for and receives a new post every 10 seconds
 
 ## Getting Started
 

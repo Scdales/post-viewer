@@ -2,11 +2,12 @@ import { TPost } from '@/lib/types'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
+import { ICON_URL } from '@/lib/constants'
 
 const Post = ({ post, fadeInDelay = 0, displayFull = false }: { post: TPost; fadeInDelay?: number; displayFull?: boolean }) => {
   const [show, setShow] = useState(false)
   const href = `/${post.id}`
-  const imageUrl = `https://dummyjson.com/icon/${post.userId}/75`
+  const imageUrl = `${ICON_URL}/${post.userId}/75`
 
   const showPost = () => {
     setTimeout(() => setShow(true), fadeInDelay)
@@ -23,12 +24,11 @@ const Post = ({ post, fadeInDelay = 0, displayFull = false }: { post: TPost; fad
         alt={`User: ${post.userId}`}
         width={75}
         height={75}
-        priority
         onLoad={showPost}
       />
       <div>
         <div className="text-lg sm:text-xl font-bold">{post.author}</div>
-        <div className="my-2 text-sm sm:text-base">{postBody}</div>
+        <div className="my-2 text-sn">{postBody}</div>
       </div>
     </div>
   )

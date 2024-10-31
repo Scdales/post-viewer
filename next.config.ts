@@ -7,9 +7,9 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'dummyjson.com',
         port: '',
-        pathname: '/icon/**',
-      },
-    ],
+        pathname: '/icon/**'
+      }
+    ]
   }
 }
 
