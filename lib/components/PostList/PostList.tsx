@@ -4,7 +4,7 @@ import Post from '@/lib/components/Post'
 
 const FADE_IN_STEP = 25 // ms
 
-const PostsLists = () => {
+const PostList = () => {
   const posts = useAppSelector((state) => state.posts.value)
   return (
     <div>
@@ -15,4 +15,4 @@ const PostsLists = () => {
   )
 }
 
-export default PostsLists
+export default PostList
