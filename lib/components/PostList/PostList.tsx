@@ -9,7 +9,7 @@ const PostList = () => {
   return (
     <div>
       {posts.map((post, idx) => (
-        <Post key={post.id} post={post} fadeInDelay={idx * FADE_IN_STEP}/>
+        <Post key={post.id} post={post} fadeInDelay={idx * FADE_IN_STEP} />
       ))}
     </div>
   )

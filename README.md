@@ -30,4 +30,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Notes
 
-- React version was bumped down to v18 as there were install and initialisation errors with redux/rtk 
+- React version was bumped down to v18 as there were install and initialisation errors with redux/rtk

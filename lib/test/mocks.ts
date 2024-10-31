@@ -8,4 +8,9 @@ export const mockPost: TPost = {
   author: 'John Smith'
 }
 
-export const mockPosts: TPost[] = Array.from({ length: 5 }).map((_, i) => ({ ...mockPost, id: i, author: `${mockPost.author}-${i}`, userId: i }))
+export const mockPosts: TPost[] = Array.from({ length: 5 }).map((_, i) => ({
+  ...mockPost,
+  id: i,
+  author: `${mockPost.author}-${i}`,
+  userId: i
+}))

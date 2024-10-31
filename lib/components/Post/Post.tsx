@@ -27,8 +27,12 @@ const Post = ({ post, fadeInDelay = 0, displayFull = false }: { post: TPost; fad
         onLoad={showPost}
       />
       <div className="w-full">
-        <div className="text-lg sm:text-xl font-bold" data-testid="post-author">{post.author}</div>
-        <div className="my-2 text-sn" data-testid="post-body">{postBody}</div>
+        <div className="text-lg sm:text-xl font-bold" data-testid="post-author">
+          {post.author}
+        </div>
+        <div className="my-2 text-sn" data-testid="post-body">
+          {postBody}
+        </div>
       </div>
     </div>
   )

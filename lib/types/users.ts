@@ -39,7 +39,7 @@ export interface TCrypto {
   network: string
 }
 
-export type TUsersResponse =  {
+export type TUsersResponse = {
   id: number
   firstName: string
   lastName: string
