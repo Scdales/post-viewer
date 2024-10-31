@@ -1,12 +1,14 @@
 import type { Config } from 'tailwindcss'
+import { COLOURS } from './lib/constants/colours'
 
 const config: Config = {
-  content: ['./lib/components/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: ['./lib/components/**/*.{js,ts,jsx,tsx,mdx}', './lib/constants/**/*.ts', './app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       colors: {
         background: 'var(--background)',
-        foreground: 'var(--foreground)'
+        foreground: 'var(--foreground)',
+        ...COLOURS
       },
       animation: {
         fade: 'fadeIn .5s ease-in-out'

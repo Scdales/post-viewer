@@ -3,6 +3,7 @@ export type TPost = {
   title: string
   body: string
   userId: number
+  author: string
 }
 
 export type TPostsResponse = {

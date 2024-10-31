@@ -6,25 +6,34 @@ import { useState } from 'react'
 const Post = ({ post, fadeInDelay = 0, displayFull = false }: { post: TPost; fadeInDelay?: number; displayFull?: boolean }) => {
   const [show, setShow] = useState(false)
   const href = `/${post.id}`
-  const imageUrl = `https://dummyjson.com/icon/${post.userId}/100`
+  const imageUrl = `https://dummyjson.com/icon/${post.userId}/75`
 
   const showPost = () => {
     setTimeout(() => setShow(true), fadeInDelay)
   }
 
-  const postClassName = `border-2 border-amber-100 my-8 ${show ? 'animate-fade' : 'opacity-0'}`
+  const postClassName = `flex items-center p-1 sm:p-2 rounded-md transition-colors bg-500 my-6${displayFull ? ' flex-col items-center' : ' duration-300 hover:bg-transparent'} ${show ? 'animate-fade' : 'opacity-0'}`
+  const postBody = displayFull ? post.body : post.body.slice(0, 100) + '...'
 
-  return (
-    <>
-      {displayFull && 'FULL DISPLAY'}
-      <Link href={href}>
-        <div className={postClassName} key={post.id}>
-          <Image src={imageUrl} alt={`User: ${post.userId}`} width={100} height={100} priority onLoad={showPost} />
-          <div>{JSON.stringify(post, null, 4)}</div>
-        </div>
-      </Link>
-    </>
+  const PostComponent = (
+    <div className={postClassName} key={post.id}>
+      <Image
+        src={imageUrl}
+        style={{ height: '75px', width: '75px' }}
+        alt={`User: ${post.userId}`}
+        width={75}
+        height={75}
+        priority
+        onLoad={showPost}
+      />
+      <div>
+        <div className="text-lg sm:text-xl font-bold">{post.author}</div>
+        <div className="my-2 text-sm sm:text-base">{postBody}</div>
+      </div>
+    </div>
   )
+
+  return displayFull ? PostComponent : <Link href={href}>{PostComponent}</Link>
 }
 
 export default Post
