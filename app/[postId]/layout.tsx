@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <SnackbarProvider>
       <div className="flex flex-col h-dvh justify-center p-2 sm:p-24">
         <div>
-          <Image className="cursor-pointer" onClick={() => router.back()} src={backArrow} alt="Back to Home" />
+          <Image className="cursor-pointer" onClick={() => router.back()} src={backArrow} alt="Back to Home" data-testid="back-arrow" />
         </div>
         {children}
       </div>

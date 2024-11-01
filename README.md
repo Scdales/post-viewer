@@ -13,10 +13,13 @@ Shows a notification when a new latest post is found (every 10 seconds), and loa
 - [Redux / RTK](https://redux-toolkit.js.org/)
 - [DummyJSON](https://dummyjson.com/)
 
+- [Jest / React-testing-library](https://testing-library.com/docs/react-testing-library/intro/): `npm run test`
+- [Playwright](https://playwright.dev): `npm run test:e2e`
+
 ## Getting Started
 
-Setting your node version:
-`nvm use`
+Setting your node version and installing:
+`nvm use && npm i`
 
 Build:
 `npm run build`

@@ -21,7 +21,7 @@ const LoadingIndicator = () => {
   const indicatorClassName = `block m-auto origin-50% ${isVisible ? 'animate-spin-step-fade' : 'opacity-0'}`
 
   return (
-    <div ref={elementRef}>
+    <div ref={elementRef} data-testid="loading-indicator-component">
       <Image className={indicatorClassName} src={loading} alt="Loading" />
     </div>
   )
