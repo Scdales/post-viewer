@@ -24,8 +24,13 @@ export const fetchLatestPost = createAsyncThunk('posts/fetchLatestPost', async (
     interval = setInterval(async () => {
       const state = thunkAPI.getState() as { posts: IPostsState }
       const [latestPost] = await getPosts(state.posts.numPosts, 1)
-      thunkAPI.dispatch(addLatestPost(latestPost))
-      enqueueSnackbar(<Notification post={latestPost} />)
+      if (latestPost) {
+        thunkAPI.dispatch(addLatestPost({ ...latestPost, latestPost: true }))
+        enqueueSnackbar(<Notification post={latestPost} />)
+      } else {
+        enqueueSnackbar('No more posts to query!', { variant: 'warning' })
+        if (interval) clearInterval(interval)
+      }
     }, NEW_POST_POLL)
   }
 })
