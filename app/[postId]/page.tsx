@@ -1,5 +1,5 @@
 'use client'
-import { useAppSelector } from '@/lib/hooks'
+import { useAppSelector } from '@/lib/hooks/redux'
 import { getPost } from '@/lib/store/slices'
 import { use } from 'react'
 import Post from '@/lib/components/Post'

@@ -30,6 +30,12 @@ export const fetchLatestPost = createAsyncThunk('posts/fetchLatestPost', async (
   }
 })
 
+export const fetchNextPostPage = createAsyncThunk('posts/fetchNextPostPage', async (_, thunkAPI) => {
+  const state = thunkAPI.getState() as { posts: IPostsState }
+  const posts = await getPosts(state.posts.numPosts, 20)
+  thunkAPI.dispatch(addPosts(posts))
+})
+
 export const postsSlice = createSlice({
   name: 'posts',
   initialState,

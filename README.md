@@ -2,6 +2,9 @@
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+An SPA that presents an initial list of 20 posts, with the ability to click through to individual posts that show the full text.
+Shows a notification when a new latest post is found (every 10 seconds), and loads the next page of posts via infinite loading
+
 ## Uses
 
 - [React 18](https://react.dev/)
@@ -9,11 +12,6 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 - [Tailwind](https://tailwindcss.com/)
 - [Redux / RTK](https://redux-toolkit.js.org/)
 - [DummyJSON](https://dummyjson.com/)
-
-## Highlights
-
-- Fetches initial 20 posts for root page at build time and hydrates initial redux state
-- Polls for and receives a new post every 10 seconds
 
 ## Getting Started
 

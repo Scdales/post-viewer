@@ -1,6 +1,6 @@
 'use client'
 import PostList from '../lib/components/PostList'
-import { useAppDispatch } from '@/lib/hooks'
+import { useAppDispatch } from '@/lib/hooks/redux'
 import { useEffect } from 'react'
 import { fetchLatestPost } from '@/lib/store/slices'
 import SnackbarProvider from '@/lib/components/SnackbarProvider'

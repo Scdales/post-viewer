@@ -1,16 +1,16 @@
 'use client'
-import { useAppSelector } from '@/lib/hooks'
+import { useAppSelector } from '@/lib/hooks/redux'
 import Post from '@/lib/components/Post'
-
-const FADE_IN_STEP = 25 // ms
+import LoadingIndicator from '@/lib/components/LoadingIndicator' // ms
 
 const PostList = () => {
   const posts = useAppSelector((state) => state.posts.value)
   return (
-    <div>
+    <div id="post-list">
       {posts.map((post, idx) => (
-        <Post key={post.id} post={post} fadeInDelay={idx * FADE_IN_STEP} />
+        <Post key={post.id} post={post} />
       ))}
+      <LoadingIndicator />
     </div>
   )
 }

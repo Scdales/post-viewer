@@ -4,14 +4,10 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { ICON_URL } from '@/lib/constants'
 
-const Post = ({ post, fadeInDelay = 0, displayFull = false }: { post: TPost; fadeInDelay?: number; displayFull?: boolean }) => {
+const Post = ({ post, displayFull = false }: { post: TPost; displayFull?: boolean }) => {
   const [show, setShow] = useState(false)
   const href = `/${post.id}`
   const imageUrl = `${ICON_URL}/${post.userId}/75`
-
-  const showPost = () => {
-    setTimeout(() => setShow(true), fadeInDelay)
-  }
 
   const postClassName = `flex items-center p-1 sm:p-2 rounded-md transition-colors bg-500 my-6${displayFull ? ' flex-col items-center' : ' duration-300 hover:bg-transparent'} ${show ? 'animate-fade' : 'opacity-0'}`
   const postBody = displayFull ? post.body : post.body.slice(0, 100) + '...'
@@ -24,7 +20,8 @@ const Post = ({ post, fadeInDelay = 0, displayFull = false }: { post: TPost; fad
         alt={`User: ${post.userId}`}
         width={75}
         height={75}
-        onLoad={showPost}
+        onLoad={() => setShow(true)}
+        blurDataURL="/blur.png"
       />
       <div className="w-full">
         <div className="text-lg sm:text-xl font-bold" data-testid="post-author">

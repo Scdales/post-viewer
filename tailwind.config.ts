@@ -11,13 +11,17 @@ const config: Config = {
         ...COLOURS
       },
       animation: {
-        fade: 'fadeIn .5s ease-in-out'
+        fade: 'fadeIn .3s ease-in-out',
+        'spin-step-fade': 'spin 1s steps(10) infinite, fadeIn .3s ease-in-out'
       },
       keyframes: {
         fadeIn: {
           from: { opacity: '0' },
           to: { opacity: '1' }
         }
+      },
+      transformOrigin: {
+        '50%': '50% 48.5%',
       }
     }
   },
