@@ -12,12 +12,17 @@ const config: Config = {
       },
       animation: {
         fade: 'fadeIn .3s ease-in-out',
-        'spin-step-fade': 'spin 1s steps(10) infinite, fadeIn .3s ease-in-out'
+        'spin-step-fade': 'spin 1s steps(10) infinite, fadeIn .3s ease-in-out',
+        highlight: 'highlightPulse .3s ease-in-out 4 alternate'
       },
       keyframes: {
         fadeIn: {
           from: { opacity: '0' },
           to: { opacity: '1' }
+        },
+        highlightPulse: {
+          from: { 'box-shadow': '0 0 0px 0px rgb(123 123 123)'},
+          to: { 'box-shadow': '0 0 20px 0px rgb(137 137 137)'}
         }
       },
       transformOrigin: {

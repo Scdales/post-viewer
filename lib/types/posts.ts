@@ -4,6 +4,7 @@ export type TPost = {
   body: string
   userId: number
   author: string
+  latestPost?: boolean
 }
 
 export type TPostsResponse = {

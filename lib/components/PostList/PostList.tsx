@@ -7,7 +7,7 @@ const PostList = () => {
   const posts = useAppSelector((state) => state.posts.value)
   return (
     <div id="post-list">
-      {posts.map((post, idx) => (
+      {posts.map((post) => (
         <Post key={post.id} post={post} />
       ))}
       <LoadingIndicator />
