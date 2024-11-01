@@ -16,7 +16,7 @@ const Post = ({ post, displayFull = false }: { post: TPost; displayFull?: boolea
   const postBody = displayFull ? post.body : post.body.slice(0, 100) + '...'
 
   const PostComponent = (
-    <div className={show ? 'duration-300 animate-fade' : 'opacity-0'}>
+    <div className={show ? 'duration-300 animate-fade' : 'opacity-0'} data-testid="post-component-container">
       <div className={postClassName} key={post.id} data-testid="post-component">
         <Image
           src={imageUrl}

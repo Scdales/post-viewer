@@ -7,7 +7,8 @@ const createJestConfig = nextJest({
 
 const config: Config = {
   coverageProvider: 'v8',
-  testEnvironment: 'jsdom'
+  testEnvironment: 'jsdom',
+  testPathIgnorePatterns: ['/lib/test/playwright']
 }
 
 export default createJestConfig(config)

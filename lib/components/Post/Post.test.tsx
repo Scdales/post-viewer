@@ -59,7 +59,7 @@ describe('Post.tsx', () => {
 
     const { getByAltText, getByTestId } = render(<Post post={mockPost} />)
     const imageElement = getByAltText(`User: ${mockPost.userId}`)
-    const postElement = getByTestId('post-component')
+    const postElement = getByTestId('post-component-container')
     expect(postElement).toHaveClass('opacity-0')
 
     act(() => {
