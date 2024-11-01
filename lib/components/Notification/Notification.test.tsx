@@ -1,6 +1,6 @@
 import Notification from './Notification'
-import { render } from '@/lib/test/test-utils'
-import { mockPost } from '@/lib/test/mocks'
+import { render } from '@/lib/test/jest/test-utils'
+import { mockPost } from '@/lib/test/jest/mocks'
 
 describe('Notification.tsx', () => {
   it('renders correctly', () => {

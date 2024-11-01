@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { render, RenderOptions } from '@testing-library/react'
 import StoreProvider from '@/lib/components/StoreProvider'
 import '@testing-library/jest-dom'
-import { mockPosts } from '@/lib/test/mocks'
+import { mockPosts } from '@/lib/test/jest/mocks'
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return <StoreProvider posts={mockPosts}>{children}</StoreProvider>

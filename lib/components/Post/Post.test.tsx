@@ -1,10 +1,10 @@
 import Post from './Post'
-import { render } from '@/lib/test/test-utils'
+import { render } from '@/lib/test/jest/test-utils'
 import { ICON_URL } from '@/lib/constants'
 import { fireEvent, waitFor } from '@testing-library/dom'
 import { ImageProps } from 'next/image'
 import { act } from '@testing-library/react'
-import { mockPost } from '@/lib/test/mocks'
+import { mockPost } from '@/lib/test/jest/mocks'
 
 jest.mock('next/image', () => ({
   __esModule: true,
@@ -57,7 +57,7 @@ describe('Post.tsx', () => {
   it('applies fade-in animation delay when fadeInDelay is set', async () => {
     jest.useFakeTimers()
 
-    const { getByAltText, getByTestId } = render(<Post post={mockPost} fadeInDelay={50} />)
+    const { getByAltText, getByTestId } = render(<Post post={mockPost} />)
     const imageElement = getByAltText(`User: ${mockPost.userId}`)
     const postElement = getByTestId('post-component')
     expect(postElement).toHaveClass('opacity-0')

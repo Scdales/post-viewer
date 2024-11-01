@@ -1,6 +1,6 @@
 import PostList from './PostList'
-import { render } from '@/lib/test/test-utils'
-import { mockPosts } from '@/lib/test/mocks'
+import { render } from '@/lib/test/jest/test-utils'
+import { mockPosts } from '@/lib/test/jest/mocks'
 
 describe('PostList.tsx', () => {
   it('renders correctly', () => {
