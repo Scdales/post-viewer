@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { TPost } from '@/lib/types'
 import { getPosts } from '@/lib/services'
-import { NEW_POST_POLL } from '@/lib/constants'
+import { NEW_POST_POLL, NEXT_PAGE_DISPATCH_DELAY } from '@/lib/constants'
 import { enqueueSnackbar } from 'notistack'
 import Notification from '@/lib/components/Notification'
 
@@ -38,7 +38,9 @@ export const fetchLatestPost = createAsyncThunk('posts/fetchLatestPost', async (
 export const fetchNextPostPage = createAsyncThunk('posts/fetchNextPostPage', async (_, thunkAPI) => {
   const state = thunkAPI.getState() as { posts: IPostsState }
   const posts = await getPosts(state.posts.numPosts, 20)
-  thunkAPI.dispatch(addPosts(posts))
+  setTimeout(() => {
+    thunkAPI.dispatch(addPosts(posts))
+  }, NEXT_PAGE_DISPATCH_DELAY)
 })
 
 export const postsSlice = createSlice({
